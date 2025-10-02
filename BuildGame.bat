@@ -10,14 +10,21 @@ if exist "%programfiles%\Microsoft Visual Studio\2022\Community\MSBuild\Current\
 	set configuration=Release
 )
 
-set projname=OpenSiv3D_0.6.14
+set thisPath=%cd%
+set projExt=*.vcxproj
 
-if exist "%projname%.vcxproj" goto BuildProject
+pushd %thisPath%
+for %%a in (%projExt%) do set projname=%%a
+popd
+pause
+
+
+if exist "%projname%" goto BuildProject
 goto BuildError
 
 :BuildProject
 cd %cd%\App
-%compiler% ..\%projname%.vcxproj /p:Configuration=%configuration% /p:Platform=x64
+%compiler% ..\%projname% /p:Configuration=%configuration% /p:Platform=x64
 if %ERRORLEVEL% equ 0 goto BuildSucceeded
 
 :BuildError
@@ -27,6 +34,6 @@ exit
 :BuildSucceeded
 echo Build succeeded. Launching game...
 cd "%cd%\Intermediate\%projname%\Release\"
-start %projname%.exe
+start %projname:~0,-8%.exe
 exit
 
