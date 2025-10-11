@@ -16,7 +16,6 @@ set projExt=*.vcxproj
 pushd %thisPath%
 for %%a in (%projExt%) do set projname=%%a
 popd
-pause
 
 
 if exist "%projname%" goto BuildProject
