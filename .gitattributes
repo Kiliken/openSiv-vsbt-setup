@@ -1,0 +1,5 @@
+*.vert linguist-detectable=false
+*.frag linguist-detectable=false
+*.hlsl linguist-detectable=false
+*.as linguist-detectable=false
+/[Aa]pp/ linguist-detectable=false
