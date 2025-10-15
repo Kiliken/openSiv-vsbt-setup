@@ -95,8 +95,8 @@
         "xtree": "cpp"
     }
     ,"C_Cpp.default.includePath": [
-        "${workspaceFolder}/OpenSiv3D_SDK_0.6.14/include",
-        "${workspaceFolder}/OpenSiv3D_SDK_0.6.14/include/ThirdParty",
+        "${workspaceFolder}/OpenSiv3D_SDK_*/include",
+        "${workspaceFolder}/OpenSiv3D_SDK_*/include/ThirdParty",
         "${workspaceFolder}/src"
     ]
 }
