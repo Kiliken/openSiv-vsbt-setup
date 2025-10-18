@@ -1,6 +1,6 @@
 @echo off
 
-set sivVersion=0.6.14
+set sivVersion=0.6.16
 set buildAll=1
 
 if exist "%cd%/src" set buildAll=0
