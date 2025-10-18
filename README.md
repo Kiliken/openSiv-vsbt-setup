@@ -1,5 +1,5 @@
 # openSiv-vsbt-setup
-A minimal setup for building openSiv3D projects using only the Visual Studio Build Tools (VSBT) from the command line.
+A minimal setup for building [OpenSiv3D](https://github.com/Siv3D/OpenSiv3D) projects using only the [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022) from the command line.
 
 ```powershell
 curl.exe -L -o "$(Get-Location)\codeDL.ps1" "https://raw.githubusercontent.com/Kiliken/openSiv-vsbt-setup/main/codeDL.ps1"
