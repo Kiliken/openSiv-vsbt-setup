@@ -1,12 +1,14 @@
 
+# Download
+curl.exe -L "https://github.com/Kiliken/openSiv-vsbt-setup/archive/refs/heads/main.tar.gz" -o "$($PSScriptRoot)\main.tar.gz" --progress-bar
 
-$wc = New-Object Net.WebClient
-Add-Type -AssemblyName System.IO.Compression.FileSystem
+# Extract
+tar -xzf "$($PSScriptRoot)\main.tar.gz" -C "$($PSScriptRoot)"
 
-$wc.DownloadFile("https://github.com/Kiliken/openSiv-vsbt-setup/archive/refs/heads/main.zip", "$($PSScriptRoot)\main.zip")
-
-[System.IO.Compression.ZipFile]::ExtractToDirectory("$($PSScriptRoot)\main.zip", $PSScriptRoot)
-
+# Install
 Move-Item "$($PSScriptRoot)\openSiv-vsbt-setup-main\*" $PSScriptRoot -Force
 Remove-Item "$($PSScriptRoot)\openSiv-vsbt-setup-main" -Recurse -Force
-Remove-Item "$($PSScriptRoot)\main.zip" -Force
+Remove-Item "$($PSScriptRoot)\main.tar.gz" -Force
+
+# Kill the Installer
+Start-Process cmd.exe -ArgumentList "/c timeout /t 2 /nobreak > nul & del `"$PSCommandPath`"" -WindowStyle Hidden

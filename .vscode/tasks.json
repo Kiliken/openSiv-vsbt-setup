@@ -3,7 +3,10 @@
     "tasks": [
         {
             "label": "Windows Build",
-            "command": "${workspaceFolder}/BuildGame.bat",
+            "command": "${workspaceFolder}/tools/BuildGame.bat",
+			"args": [
+                "VSCODE"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true

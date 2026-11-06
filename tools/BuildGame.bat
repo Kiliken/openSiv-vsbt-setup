@@ -10,6 +10,10 @@ if exist "%programfiles%\Microsoft Visual Studio\2022\Community\MSBuild\Current\
 	set configuration=Release
 )
 
+cd %~dp0..
+
+
+set env=%1
 set thisPath=%cd%
 set projExt=*.vcxproj
 
@@ -28,11 +32,15 @@ if %ERRORLEVEL% equ 0 goto BuildSucceeded
 
 :BuildError
 echo Build failed!
-exit
+if /i "%env%"=="VSCODE" goto BuildExit
+pause
+goto BuildExit
 
 :BuildSucceeded
 echo Build succeeded. Launching game...
-cd "%cd%\Intermediate\%projname%\Release\"
-start %projname:~0,-8%.exe
-exit
+start "" %projname:~0,-8%.exe
+goto BuildExit
 
+:BuildExit
+echo Closing Builder...
+exit
